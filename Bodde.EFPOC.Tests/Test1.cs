@@ -11,18 +11,33 @@ namespace Bodde.EFPOC.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var opt = new DbContextOptionsBuilder<MyDbContext>()
-                .UseSqlServer(connectionString)
-                .Options;
+            InitializeContext();
 
-            using (var ctx = new MyDbContext(opt))
+            using (var ctx = CreateDbContext())
+            {
+
+            }
+        }
+
+        private void InitializeContext()
+        {
+            using (var ctx = CreateDbContext())
             {
                 var dbCreated = ctx.Database.EnsureCreated();
-                if(dbCreated)
+                if (dbCreated)
                 {
                     SeedData(ctx);
                 }
             }
+        }
+
+        private MyDbContext CreateDbContext()
+        {
+            var opt = new DbContextOptionsBuilder<MyDbContext>()
+                .UseSqlServer(connectionString)
+                .Options;
+
+            return new MyDbContext(opt);
         }
 
         private void SeedData(MyDbContext ctx)
