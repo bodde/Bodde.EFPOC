@@ -8,27 +8,35 @@ namespace Bodde.EFPOC.Tests
     {
         private const string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Bodde.EFPOC;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=False;Command Timeout=0";
 
-        [TestMethod]
-        public void TestMethod1()
+        [TestInitialize]
+        public void TestInitialize()
         {
-            InitializeContext();
-
+            // Ensure the database is created before each test
             using (var ctx = CreateDbContext())
             {
-
+                ctx.Database.EnsureDeleted();
+                ctx.Database.EnsureCreated();
+                SeedData(ctx);
             }
         }
 
-        private void InitializeContext()
+
+        [TestMethod]
+        public void AddProductToProject()
         {
-            using (var ctx = CreateDbContext())
-            {
-                var dbCreated = ctx.Database.EnsureCreated();
-                if (dbCreated)
-                {
-                    SeedData(ctx);
-                }
-            }
+
+        }
+
+        [TestMethod]
+        public void RemoveProductToProject()
+        {
+
+        }
+
+        [TestMethod]
+        public void ChangeProductToProject()
+        {
+
         }
 
         private MyDbContext CreateDbContext()
