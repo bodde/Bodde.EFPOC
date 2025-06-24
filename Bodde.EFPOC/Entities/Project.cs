@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Headers;
 
-namespace Bodde.EFPOC
+namespace Bodde.EFPOC.Entities
 {
     public class Project
     {

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bodde.EFPOC.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 
 namespace Bodde.EFPOC.Tests

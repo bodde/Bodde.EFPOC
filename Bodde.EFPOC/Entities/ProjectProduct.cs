@@ -1,4 +1,4 @@
-﻿namespace Bodde.EFPOC
+﻿namespace Bodde.EFPOC.Entities
 {
     public class ProjectProduct
     {

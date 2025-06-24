@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bodde.EFPOC.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bodde.EFPOC
 {
